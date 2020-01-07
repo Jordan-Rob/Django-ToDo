@@ -8,7 +8,7 @@ from django.db import models
 """
 
 
-"""class Todo(models.Model):
+class Todo(models.Model):
     description = models.CharField(max_length=200)
     Todo_date = models.DateTimeField('Todo Date')
 
@@ -24,4 +24,3 @@ from django.db import models
         todo = Todo.objects.first(pk=pk)
         todo.remove()
         return "Todo removed"
-"""
