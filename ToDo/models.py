@@ -15,12 +15,12 @@ class Todo(models.Model):
     def __str__(self):
         return self.description
 
-    def create(self, description, Todo_date):
+    def create_todo(self, description, Todo_date):
         todo = Todo(description=description, Todo_date=Todo_date)
         todo.save()
         return todo
 
-    def delete(self, pk):
-        todo = Todo.objects.first(pk=pk)
-        todo.remove()
+    def delete_todo(self, description):
+        todo = Todo.objects.filter(description=description)
+        todo.delete()
         return "Todo removed"

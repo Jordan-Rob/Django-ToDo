@@ -6,3 +6,6 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Todo app will be ready soon")
+
+def todopost(request):
+    return HttpResponse("Post Todo")
