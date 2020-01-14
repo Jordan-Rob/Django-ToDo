@@ -21,6 +21,6 @@ class Todo(models.Model):
         return todo
 
     def delete_todo(self, description):
-        todo = Todo.objects.filter(description=description)
+        todo = Todo.objects.get(description=description)
         todo.delete()
         return "Todo removed"
