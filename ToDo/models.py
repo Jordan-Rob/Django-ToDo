@@ -19,7 +19,8 @@ class Todo(models.Model):
         return self.description
 
     def create_todo(self, description, Todo_date, pub_date):
-        todo = Todo(description=description, Todo_date=Todo_date)
+        todo = Todo(description=description,
+                    Todo_date=Todo_date, pub_date=pub_date)
         todo.save()
         return todo
 
