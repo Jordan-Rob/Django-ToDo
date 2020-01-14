@@ -18,7 +18,7 @@ class Todo(models.Model):
     def __str__(self):
         return self.description
 
-    def create_todo(self, description, Todo_date):
+    def create_todo(self, description, Todo_date, pub_date):
         todo = Todo(description=description, Todo_date=Todo_date)
         todo.save()
         return todo
@@ -32,6 +32,6 @@ class Todo(models.Model):
         todos = Todo.objects.all()
         time_limit = datetime.timedelta(hours=24)
         for todo in todos:
-            if todo.pub_date > (timezone.now()-time_limit):
+            if (timezone.now()-todo.pub_date) > (timezone.now()-time_limit):
                 todo.delete()
                 return "old todo cleared"
