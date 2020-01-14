@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+import datetime
 
 # Create your models here.
 
@@ -11,6 +13,7 @@ from django.db import models
 class Todo(models.Model):
     description = models.CharField(max_length=200)
     Todo_date = models.DateTimeField('Todo Date')
+    pub_date = models.DateTimeField('Date Published')
 
     def __str__(self):
         return self.description
@@ -24,3 +27,11 @@ class Todo(models.Model):
         todo = Todo.objects.get(description=description)
         todo.delete()
         return "Todo removed"
+
+    def clear_old_todo(self):
+        todos = Todo.objects.all()
+        time_limit = datetime.timedelta(hours=24)
+        for todo in todos:
+            if todo.pub_date > (timezone.now()-time_limit):
+                todo.delete()
+                return "old todo cleared"
