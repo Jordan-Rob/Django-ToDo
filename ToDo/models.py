@@ -32,9 +32,7 @@ class Todo(models.Model):
     def clear_old_todo(self):
         todos = Todo.objects.all()
         time_limit = datetime.timedelta(hours=24)
-        time1 = timezone.now()-todo.pub_date
-        time2 = timezone.now()-time_limit
         for todo in todos:
-            if (int(time1)) > (int(time2)):
+            if (timezone.now()-todo.pub_date) > time_limit:
                 todo.delete()
                 return "old todo cleared"
