@@ -2,11 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-#from .models import Todo
+from .models import Todo
 
 
 def index(request):
-    return HttpResponse("Todo app will be ready soon")
+    latest_todos = Todo.objects.order_by('-pub_date')
+    output = ', '.join([todo.description for todo in latest_todos])
+    return HttpResponse(output)
 
 
 def detail(request, todo_description):

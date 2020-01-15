@@ -1,0 +1,12 @@
+{% if latest_todos %}
+<ul>
+    {% for todo in latest_todos %}
+        <li>
+            <a href="{% url 'ToDo:detail' todo.description %}"><{{todo.description}}/a>
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% else %}
+<p>No todos have been posted</p>
+{% endelse %}
