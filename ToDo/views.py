@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 
 # Create your views here.
 from .models import Todo
@@ -7,8 +8,11 @@ from .models import Todo
 
 def index(request):
     latest_todos = Todo.objects.order_by('-pub_date')
-    output = ', '.join([todo.description for todo in latest_todos])
-    return HttpResponse(output)
+    template = loader.get_template('ToDo/index.html')
+    context = {
+        'latest_todos': latest_todos
+    }
+    return HttpResponse(template.render(context, request))
 
 
 def detail(request, todo_description):
