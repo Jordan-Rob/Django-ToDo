@@ -7,5 +7,8 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse("Todo app will be ready soon")
 
+def detail(request, todo_id):
+    return HttpResponse("Details of Todo {}".format(todo_id))
+
 def todopost(request):
     return HttpResponse("Post Todo")
