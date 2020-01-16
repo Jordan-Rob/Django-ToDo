@@ -15,8 +15,18 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
-def detail(request, todo_description):
-    return HttpResponse("Details of Todo {}".format(todo_description))
+def detail(request, todo_description, todo_date, todo_pub_date):
+    TodoDate = todo_date
+    TodoDescription = todo_description
+    publishDate = todo_pub_date
+    template = loader.get_template('ToDo/detail.html')
+    context = {
+        'TodoDate': TodoDate,
+        'TodoDescription': TodoDescription,
+        'publishDate': publishDate
+    }
+
+    return HttpResponse(template.render(context, request))
 
 
 def todopost(request):
