@@ -15,10 +15,10 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
-def detail(request, todo_description, todo_date, todo_pub_date):
-    TodoDate = todo_date
+def detail(request, todo_description):
+    TodoDate = Todo.objects.get(description=todo_description).Todo_date
     TodoDescription = todo_description
-    publishDate = todo_pub_date
+    publishDate = Todo.objects.get(description=todo_description).pub_date
     template = loader.get_template('ToDo/detail.html')
     context = {
         'TodoDate': TodoDate,
