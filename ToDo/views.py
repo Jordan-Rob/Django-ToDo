@@ -33,8 +33,7 @@ def detail(request, todo_description):
 def todo_delete(request, todo_description):
     todo = Todo.objects.get(description=todo_description)
     todo.delete()
-    template = loader.get_template('Todo/index.html')
-    return redirect(template)
+    return redirect('Todo/index.html')
 
 
 def todopost(request):
