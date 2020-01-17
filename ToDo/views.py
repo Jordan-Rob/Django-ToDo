@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 
 # Create your views here.
@@ -27,6 +27,13 @@ def detail(request, todo_description):
     }
 
     return HttpResponse(template.render(context, request))
+
+
+def delete_todo(request, todo_description):
+    todo = Todo.objects.get(description=todo_description)
+    todo.delete_todo(description=todo_description)
+    template = loader.get_template('Todo/detail.html')
+    return HttpResponseRedirect(template)
 
 
 def todopost(request):
