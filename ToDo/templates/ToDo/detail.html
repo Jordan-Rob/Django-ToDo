@@ -2,4 +2,7 @@
   <h1>{{ TodoDate }}</h1>
   <p>{{ TodoDescription }}</p>
   <p class="pubdate">{{ publishDate }}</p>
+  <form action="{% url 'ToDo:delete' question.description %}" method="post">
+    <input type="submit" value="" />
+  </form>
 </div>

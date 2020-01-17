@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
+from django.urls import reverse
 
 # Create your views here.
 from .models import Todo
@@ -33,7 +34,7 @@ def delete_todo(request, todo_description):
     todo = Todo.objects.get(description=todo_description)
     todo.delete_todo(description=todo_description)
     template = loader.get_template('Todo/detail.html')
-    return HttpResponseRedirect(template)
+    return HttpResponseRedirect(reverse(template))
 
 
 def todopost(request):
