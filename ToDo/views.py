@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.template import loader
 from django.urls import reverse
 
@@ -30,11 +30,11 @@ def detail(request, todo_description):
     return HttpResponse(template.render(context, request))
 
 
-def delete_todo(request, todo_description):
+def todo_delete(request, todo_description):
     todo = Todo.objects.get(description=todo_description)
-    todo.delete_todo(description=todo_description)
-    template = loader.get_template('Todo/detail.html')
-    return HttpResponseRedirect(reverse(template))
+    todo.delete()
+    template = loader.get_template('Todo/index.html')
+    return redirect(template)
 
 
 def todopost(request):
