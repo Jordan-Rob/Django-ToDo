@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.template import loader
+
+
 from django.urls import reverse
 
 # Create your views here.
 from .models import Todo
 
-
+"""
 def index(request):
     latest_todos = Todo.objects.order_by('-pub_date')
     template = loader.get_template('ToDo/index.html')
@@ -38,3 +38,4 @@ def todo_delete(request, todo_description):
 
 def todopost(request):
     return HttpResponse("Post Todo")
+"""

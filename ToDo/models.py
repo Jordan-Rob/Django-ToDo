@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 from django.utils import timezone
 import datetime
 
@@ -15,9 +17,13 @@ class Todo(models.Model):
     Todo_date = models.DateTimeField('Todo Date')
     pub_date = models.DateTimeField('Date Published')
 
-    def __str__(self):
-        return self.description
+    def get_absolute_url(self):
+        return reverse('ToDo:detail', kwargs={'id': self.id})
 
+    # def __str__(self):
+    #    return self.description
+
+    """
     def create_todo(self, description, Todo_date, pub_date):
         todo = Todo(description=description,
                     Todo_date=Todo_date, pub_date=pub_date)
@@ -36,3 +42,4 @@ class Todo(models.Model):
             if (timezone.now()-todo.pub_date) > time_limit:
                 todo.delete()
                 return "old todo cleared"
+    """
