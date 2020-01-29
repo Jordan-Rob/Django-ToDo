@@ -1,14 +1,11 @@
 <h1>ToDo's</h1>
-{% if latest_todos %}
 <ul>
-  {% for todo in latest_todos %}
+  {% for object in object_list %}
   <li>
-    <a href="{% url 'ToDo:detail' todo.description %}"
-      >{{ todo.description }}</a
-    >
+    <p>
+      {{ object.id }} -
+      <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
+    </p>
   </li>
   {% endfor %}
 </ul>
-{% else %}
-<p>No todos have been posted</p>
-{% endif %}
