@@ -21,6 +21,9 @@ class Todo(models.Model):
     def get_absolute_url(self):
         return reverse('ToDo:detail', kwargs={'id': self.id})
 
+    def get_back_home(self):
+        return reverse('ToDo:todos', kwargs={})
+
     # def __str__(self):
     #    return self.description
 

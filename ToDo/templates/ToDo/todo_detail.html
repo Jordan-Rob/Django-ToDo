@@ -1,6 +1,13 @@
 <div>
-  <h1>{{ TodoDate }}</h1>
-  <p>{{ TodoDescription }}</p>
-  <p class="pubdate">{{ publishDate }}</p>
-  <a href="delete/{{ TodoDescription }}">Delete</a>
+  <h1>{{ object.name }}</h1>
+  <p>{{ object.description }}</p>
+  <ul>
+    <li>To be done on {{ object.Todo_date }}</li>
+    <li>Created on {{ object.pub_date }}</li>
+  </ul>
+  <p>
+    <a href="delete/{{ TodoDescription }}">Update</a> |
+    <a href="delete/{{ TodoDescription }}">Delete</a>
+  </p>
+  <p><a href="{{ object.get_back_home }}">Back to Todos</a></p>
 </div>
