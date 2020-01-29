@@ -1,13 +1,10 @@
 from django.urls import path
 
-from . import views
+from .views import TodoListView
 
 app_name = "ToDo"
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('details/<todo_description>', views.detail, name='detail'),
-    path('details/delete/<todo_description>',
-         views.todo_delete, name='delete'),
-    path('post', views.todopost, name='post'),
+    path('Todos/', TodoListView.as_view(), name='todos'),
+
 ]

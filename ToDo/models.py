@@ -13,6 +13,7 @@ import datetime
 
 
 class Todo(models.Model):
+    name = models.CharField(max_length=100, default='unamedTodo')
     description = models.CharField(max_length=200)
     Todo_date = models.DateTimeField('Todo Date')
     pub_date = models.DateTimeField('Date Published')

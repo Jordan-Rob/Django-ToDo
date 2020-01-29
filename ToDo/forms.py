@@ -6,6 +6,7 @@ class TodoForm(forms.ModelForm):
     class Meta:
         model = Todo
         fields = [
+            'name',
             'description',
             'Todo_date',
             'pub_date'
