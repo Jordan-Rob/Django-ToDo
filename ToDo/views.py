@@ -28,6 +28,12 @@ class TodoDetailView(DeleteView):
         return get_object_or_404(Todo, id=id_)
 
 
+class TodoCreateView(CreateView):
+    template_name = 'ToDo/todo_create.html'
+    form_class = TodoForm
+    queryset = Todo.objects.all()
+
+
 """
 def index(request):
     latest_todos = Todo.objects.order_by('-pub_date')
