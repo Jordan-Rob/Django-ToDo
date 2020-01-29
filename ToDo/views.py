@@ -1,10 +1,23 @@
-from django.shortcuts import render, redirect
+from .forms import TodoForm
+from .models import Todo
 
-
+from django.views.generic import (
+    CreateView,
+    ListView,
+    DetailView,
+    UpdateView,
+    DeleteView
+)
 from django.urls import reverse
+from django.shortcuts import render, get_object_or_404
+
 
 # Create your views here.
-from .models import Todo
+
+class TodoListView(ListView):
+    template_name = 'ToDo/todo_list.html'
+    queryset = Todo.objects.all()
+
 
 """
 def index(request):
