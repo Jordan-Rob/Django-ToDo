@@ -19,6 +19,15 @@ class TodoListView(ListView):
     queryset = Todo.objects.all()
 
 
+class TodoDetailView(DeleteView):
+    template_name = 'ToDo/todo_detail.html'
+    queryset = Todo.objects.all()
+
+    def get_object(self):
+        id_ = self.kwargs.get("id")
+        return get_object_or_404(Todo, id=id_)
+
+
 """
 def index(request):
     latest_todos = Todo.objects.order_by('-pub_date')
