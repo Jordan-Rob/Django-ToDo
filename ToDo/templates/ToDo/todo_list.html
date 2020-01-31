@@ -8,5 +8,5 @@
     </p>
   </li>
   {% endfor %}
-  <p>Create new Todo <a href="{{ object.go_to_create }}">here</a></p>
+  <p>Create new Todo <a href="{% url 'ToDo:create' %}">here</a></p>
 </ul>
