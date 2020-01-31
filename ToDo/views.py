@@ -34,6 +34,17 @@ class TodoCreateView(CreateView):
     queryset = Todo.objects.all()
 
 
+class TodoUpdateView(UpdateView):
+    template_name = 'ToDo/todo_create.html'
+    form_class = TodoForm
+    queryset = Todo.objects.all()
+
+    def get_object(self):
+        id_ = self.kwargs.get("id")
+        return get_object_or_404(Todo, id=id_)
+
+        
+
 """
 def index(request):
     latest_todos = Todo.objects.order_by('-pub_date')
