@@ -1,0 +1,6 @@
+<h1>Create Todo</h1>
+<form method="POST">
+  {% csrf_token %}
+  <h1>Do you want to delete {{ object.name }}</h1>
+  <p><input type="submit" value="yes" /> <a href="../">Cancel</a></p>
+</form>

@@ -43,7 +43,17 @@ class TodoUpdateView(UpdateView):
         id_ = self.kwargs.get("id")
         return get_object_or_404(Todo, id=id_)
 
-        
+
+class TodoDeleteView(DeleteView):
+    template_name = 'ToDo/todo_delete.html'
+    #queryset = Todo.objects.all()
+
+    def get_object(self):
+        id_ = self.kwargs.get('id')
+        return get_object_or_404(Todo, id=id_)
+
+    def get_success_url(self):
+        return reverse('ToDo:todos')
 
 """
 def index(request):
