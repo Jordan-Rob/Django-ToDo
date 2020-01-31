@@ -6,7 +6,7 @@
     <li>Created on {{ object.pub_date }}</li>
   </ul>
   <p>
-    <a href="delete/{{ TodoDescription }}">Update</a> |
+    <a href="{{ object.go_to_update }}">Update</a> |
     <a href="delete/{{ TodoDescription }}">Delete</a>
   </p>
   <p><a href="{{ object.get_back_home }}">Back to Todos</a></p>

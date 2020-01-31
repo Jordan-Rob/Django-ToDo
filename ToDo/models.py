@@ -24,6 +24,9 @@ class Todo(models.Model):
     def get_back_home(self):
         return reverse('ToDo:todos', kwargs={})
 
+    def go_to_update(self):
+        return reverse('ToDo:update', kwargs={'id': self.id})
+
     # def __str__(self):
     #    return self.description
 
