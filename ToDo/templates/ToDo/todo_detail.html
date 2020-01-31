@@ -7,7 +7,7 @@
   </ul>
   <p>
     <a href="{{ object.go_to_update }}">Update</a> |
-    <a href="delete/{{ TodoDescription }}">Delete</a>
+    <a href="{% url 'ToDo:delete' object.id %}">Delete</a>
   </p>
   <p><a href="{{ object.get_back_home }}">Back to Todos</a></p>
 </div>

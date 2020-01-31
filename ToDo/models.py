@@ -27,7 +27,9 @@ class Todo(models.Model):
     def go_to_update(self):
         return reverse('ToDo:update', kwargs={'id': self.id})
 
-    
+    def go_to_delete(self):
+        return reverse('ToDo:delete', kwargs={'id': self.id})
+
     # def __str__(self):
     #    return self.description
 
