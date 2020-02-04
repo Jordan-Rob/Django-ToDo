@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% block content %}
-<h1 class="bg-red-600 w-1/2">Create Todo</h1>
-<form class="bg-grey-800" method="POST">
-  {% csrf_token %} {{ form.as_p }}
+<h1 class="bg-blue-400 w-1/2 mt-8 ml-16 p-4">Create Todo</h1>
+<form class=" w-34 pt-6 px-16" method="POST">
+  {% csrf_token %}
+  <p class="bg-blue-900">{{ form.as_p }}</p>
   <input type="submit" value="Save" />
   <p><a href="../">Cancel</a></p>
 </form>
