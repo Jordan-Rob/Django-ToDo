@@ -1,6 +1,9 @@
-<h1>Create Todo</h1>
-<form method="POST">
+{% extends 'base.html' %} {% block content %}
+<h1 class="bg-red-600 w-1/2">Create Todo</h1>
+<form class="bg-grey-800" method="POST">
   {% csrf_token %} {{ form.as_p }}
   <input type="submit" value="Save" />
   <p><a href="../">Cancel</a></p>
 </form>
+
+{% endblock %}
