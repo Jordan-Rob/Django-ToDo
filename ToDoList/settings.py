@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'tailwind',
+    'theme.apps.ThemeConfig',
     'ToDo.apps.TodoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+#tailwind integration
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+TAILWIND_APP_NAME = 'theme'
+
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
