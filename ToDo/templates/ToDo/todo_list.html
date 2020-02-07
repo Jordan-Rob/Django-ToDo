@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
-<div class=" mx-56 my-10 bg-gray-200 py-4 px-8 font-sans rounded-lg shadow-xl">
-  <div class=" text-center " >
+<div class=" max-w-xl mx-auto my-10 bg-gray-200 py-4 px-8 font-sans rounded-lg shadow-xl">
+  <div class=" ml-24" >
     <h1 class=" text-4xl text-purple-600 font-bold  mb-2">ToDo's</h1>
     <ul>
       {% for object in object_list %}
@@ -11,7 +11,10 @@
           </p>
         </li>
       {% endfor %}
-      <p class=" py-4 px-2 bg-purple-600 mx-64 my-8 rounded-lg">Create new Todo <a href="{% url 'ToDo:create' %}">here</a></p>
+       <a href="{% url 'ToDo:create' %}" class=" 
+       bg-purple-600 px-5 rounded-lg inline-block
+       my-8 py-2 px-2 text-white shadow-xl">
+       Create new Todo </a>
     </ul>
   </div>
 </div>
