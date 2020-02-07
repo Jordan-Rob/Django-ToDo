@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block content %}
-<div>
+<div
+  class="  max-w-xl mx-auto my-10 bg-gray-200 py-4 px-8 font-sans rounded-lg shadow-xl"
+>
   <div>
-    <h1 class="bg-blue-400 w-1/2 mt-8 ml-16 p-4 ">Create Todo</h1>
+    <h1 class="text-4xl text-purple-600 font-bold  mb-2 ">Create Todo</h1>
     <form class=" w-34 pt-6 px-16" method="POST">
       {% csrf_token %}
       <p class="bg-blue-900">{{ form.as_p }}</p>
