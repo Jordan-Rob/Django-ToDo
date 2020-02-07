@@ -1,12 +1,21 @@
-<h1>ToDo's</h1>
-<ul>
-  {% for object in object_list %}
-  <li>
-    <p>
-      {{ object.id }} -
-      <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
-    </p>
-  </li>
-  {% endfor %}
-  <p>Create new Todo <a href="{% url 'ToDo:create' %}">here</a></p>
-</ul>
+{% extends 'base.html' %} {% block content %}
+<div class=" mx-56 my-10 bg-gray-200 py-4 px-8 font-sans rounded-lg shadow-xl">
+  <div class=" text-center " >
+    <h1 class=" text-4xl text-purple-600 font-bold  mb-2">ToDo's</h1>
+    <ul>
+      {% for object in object_list %}
+        <li class=" text-2xl text-gray-700">
+          <p>
+            {{ object.id }} -
+            <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
+          </p>
+        </li>
+      {% endfor %}
+      <p class=" py-4 px-2 bg-purple-600 mx-64 my-8 rounded-lg">Create new Todo <a href="{% url 'ToDo:create' %}">here</a></p>
+    </ul>
+  </div>
+</div>
+  
+</div>
+
+{% endblock %}
