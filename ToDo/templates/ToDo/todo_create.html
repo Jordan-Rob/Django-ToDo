@@ -4,9 +4,8 @@
 >
   <div>
     <h1 class="text-4xl text-purple-600 font-bold  mb-2 ">Create Todo</h1>
-    <form class=" w-34 pt-6 px-16" method="POST">
-      {% csrf_token %}
-      <p class="bg-blue-900">{{ form.as_p }}</p>
+    <form class=" w-34 pt-6 px-16 text-gray-700" method="POST">
+      {% csrf_token %} {{ form.as_p }}
       <input
         class=" 
       bg-purple-600 px-5 rounded-lg inline-block
