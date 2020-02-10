@@ -7,8 +7,20 @@
     <form class=" w-34 pt-6 px-16" method="POST">
       {% csrf_token %}
       <p class="bg-blue-900">{{ form.as_p }}</p>
-      <input type="submit" value="Save" />
-      <p><a href="../">Cancel</a></p>
+      <input
+        class=" 
+      bg-purple-600 px-5 rounded-lg inline-block
+      my-8 mr-4 py-2 px-2 text-white shadow-xl"
+        type="submit"
+        value="Save"
+      />
+      <a
+        href="../"
+        class=" 
+        bg-gray-600 px-5 rounded-lg inline-block
+        my-8 mx-4 py-2 px-2 text-white shadow-xl"
+        >Cancel</a
+      >
     </form>
   </div>
 </div>

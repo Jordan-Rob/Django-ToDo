@@ -1,13 +1,39 @@
-<div>
-  <h1>{{ object.name }}</h1>
-  <p>{{ object.description }}</p>
-  <ul>
-    <li>To be done on {{ object.Todo_date }}</li>
-    <li>Created on {{ object.pub_date }}</li>
-  </ul>
-  <p>
-    <a href="{{ object.go_to_update }}">Update</a> |
-    <a href="{% url 'ToDo:delete' object.id %}">Delete</a>
-  </p>
-  <p><a href="{{ object.get_back_home }}">Back to Todos</a></p>
+{% extends 'base.html' %} {% block content %}
+<div
+  class=" max-w-xl mx-auto my-10 bg-gray-200 py-4 px-8 font-sans rounded-lg shadow-xl"
+>
+  <div class=" ml-24">
+    <h1 class=" text-4xl text-purple-600 font-bold  mb-2">{{ object.name }}</h1>
+    <p class=" text-2xl text-gray-700">{{ object.description }}</p>
+    <ul class=" text-xl text-gray-700">
+      <li>To be done on {{ object.Todo_date }}</li>
+      <li>Created on {{ object.pub_date }}</li>
+    </ul>
+    <p>
+      <a
+        href="{{ object.go_to_update }}"
+        class=" 
+      bg-purple-600 px-5 rounded-lg inline-block
+      my-4 mr-4 py-2 px-2 text-white shadow-xl"
+        >Update</a
+      >
+      <a
+        href="{% url 'ToDo:delete' object.id %}"
+        class=" 
+      bg-red-600 px-5 rounded-lg inline-block
+      my-4 mx-4 py-2 px-2 text-white shadow-xl"
+        >Delete</a
+      >
+    </p>
+    <p>
+      <a
+        href="{{ object.get_back_home }}"
+        class=" 
+      bg-gray-600 px-5 rounded-lg inline-block
+      my-2 py-2 px-2 text-white shadow-xl"
+        >Back to Todos</a
+      >
+    </p>
+  </div>
 </div>
+{% endblock %}
