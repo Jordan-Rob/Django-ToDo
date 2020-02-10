@@ -1,6 +1,33 @@
-<h1>Create Todo</h1>
-<form method="POST">
-  {% csrf_token %}
-  <h1>Do you want to delete {{ object.name }}</h1>
-  <p><input type="submit" value="yes" /> <a href="../">Cancel</a></p>
-</form>
+{% extends 'base.html' %} {% block content %}
+<div
+  class=" max-w-xl mx-auto my-10 bg-gray-200 py-4 px-8 font-sans rounded-lg shadow-xl"
+>
+  <div class=" ml-24">
+    <h1 class=" text-4xl text-purple-600 font-bold  mb-2">
+      <span class=" text-red-600">Delete</span> Todo
+    </h1>
+    <form method="POST">
+      {% csrf_token %}
+      <h1 class=" text-2xl text-gray-700">
+        Do you want to delete {{ object.name }}
+      </h1>
+      <p>
+        <input
+          class=" 
+        bg-red-600 px-5 rounded-lg inline-block
+        my-8 mr-4 py-2 px-2 text-white shadow-xl"
+          type="submit"
+          value="yes"
+        />
+        <a
+          href="../"
+          class=" 
+        bg-gray-600 px-5 rounded-lg inline-block
+        my-8 mx-4 py-2 px-2 text-white shadow-xl"
+          >Cancel</a
+        >
+      </p>
+    </form>
+  </div>
+</div>
+{% endblock %}
