@@ -16,6 +16,8 @@ urlpatterns = [
     path('Todos/<int:id>/', TodoDetailView.as_view(), name='detail'),
     path('Todos/create/', TodoCreateView.as_view(), name='create'),
     path('Todos/<int:id>/update/', TodoUpdateView.as_view(), name='update'),
-    path('Todos/<int:id>/delete/', TodoDeleteView.as_view(), name='delete')
+    path('Todos/<int:id>/delete/', TodoDeleteView.as_view(), name='delete'),
+    # path('login/', , name='login'),
+    # path('register/', , name='register')
 
 ]

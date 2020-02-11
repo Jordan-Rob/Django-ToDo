@@ -1,5 +1,9 @@
 from .forms import TodoForm
 from .models import Todo
+from django.shortcuts import render
+from django.template import loader
+from django.contrib.auth.decorators import login_required
+
 
 from django.views.generic import (
     CreateView,
@@ -54,6 +58,9 @@ class TodoDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse('ToDo:todos')
+
+
+# FBV to be used for login and signup
 
 
 """
