@@ -1,8 +1,8 @@
 from .forms import TodoForm
 from .models import Todo
-from django.shortcuts import render
 from django.template import loader
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 from django.views.generic import (
@@ -17,12 +17,13 @@ from django.shortcuts import render, get_object_or_404
 
 
 # Create your views here.
-
+@method_decorator(login_required, name='dispatch')
 class TodoListView(ListView):
     template_name = 'ToDo/todo_list.html'
     queryset = Todo.objects.all()
 
 
+@method_decorator(login_required, name='dispatch')
 class TodoDetailView(DeleteView):
     template_name = 'ToDo/todo_detail.html'
     queryset = Todo.objects.all()
