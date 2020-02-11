@@ -40,3 +40,10 @@ class TodoForm(forms.ModelForm):
             'Todo_date',
             'pub_date'
         ]
+
+
+class TodoLoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(
+        widget=forms.PasswordInput
+    )

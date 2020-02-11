@@ -55,6 +55,7 @@ class TodoDeleteView(DeleteView):
     def get_success_url(self):
         return reverse('ToDo:todos')
 
+
 """
 def index(request):
     latest_todos = Todo.objects.order_by('-pub_date')
