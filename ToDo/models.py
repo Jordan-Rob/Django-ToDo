@@ -1,8 +1,10 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 from django.utils import timezone
 import datetime
+-
 
 # Create your models here.
 
@@ -10,6 +12,13 @@ import datetime
     Full_names = models.CharField(max_length=200)
     Address = models.CharField(max_length=200)
 """
+
+
+class TodoList(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class Todo(models.Model):

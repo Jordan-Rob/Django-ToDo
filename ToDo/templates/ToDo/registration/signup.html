@@ -7,7 +7,7 @@
       SignUp
     </h2>
     <form class=" w-34 pt-6 px-16 text-gray-700" action="" method="POST">
-      {{ form.as_p }}
+      {% csrf_token %} {{ form.as_p }}
       <input type="submit" value="SignUp" />
     </form>
   </div>
