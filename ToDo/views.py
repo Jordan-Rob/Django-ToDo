@@ -33,12 +33,14 @@ class TodoDetailView(DeleteView):
         return get_object_or_404(Todo, id=id_)
 
 
+@method_decorator(login_required, name='dispatch')
 class TodoCreateView(CreateView):
     template_name = 'ToDo/todo_create.html'
     form_class = TodoForm
     queryset = Todo.objects.all()
 
 
+@method_decorator(login_required, name='dispatch')
 class TodoUpdateView(UpdateView):
     template_name = 'ToDo/todo_create.html'
     form_class = TodoForm
@@ -49,6 +51,7 @@ class TodoUpdateView(UpdateView):
         return get_object_or_404(Todo, id=id_)
 
 
+@method_decorator(login_required, name='dispatch')
 class TodoDeleteView(DeleteView):
     template_name = 'ToDo/todo_delete.html'
     #queryset = Todo.objects.all()
