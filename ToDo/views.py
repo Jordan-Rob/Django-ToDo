@@ -3,6 +3,7 @@ from .models import Todo
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib.auth.forms import UserCreationForm
 
 
 from django.views.generic import (
@@ -12,7 +13,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.shortcuts import render, get_object_or_404
 
 
@@ -64,7 +65,11 @@ class TodoDeleteView(DeleteView):
         return reverse('ToDo:todos')
 
 
-# FBV to be used for login and signup
+# signup view
+class SignUp(CreateView):
+    template_name = 'ToDo/registration/signup.html'
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
 
 
 """
