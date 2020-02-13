@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 from django.utils import timezone
 import datetime
--
 
 # Create your models here.
 
@@ -15,6 +14,8 @@ import datetime
 
 
 class TodoList(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="todolist", null=True)
     name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -22,6 +23,8 @@ class TodoList(models.Model):
 
 
 class Todo(models.Model):
+    todolist = models.ForeignKey(
+        TodoList, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, default='unamedTodo')
     description = models.CharField(max_length=200)
     Todo_date = models.DateTimeField('Todo Date')
